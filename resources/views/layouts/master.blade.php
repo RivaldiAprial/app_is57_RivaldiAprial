@@ -70,7 +70,7 @@
           </li>
           <li class="nav-header">DATA MASTER</li>
           <li class="nav-item">
-            <a href="../calendar.html" class="nav-link">
+            <a href="/penduduk" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Data Penduduk
@@ -79,7 +79,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../gallery.html" class="nav-link">
+            <a href="/gampong" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Data Gampong
