@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gampong extends Model
 {
-    use HasFactory;
+    public function gampong(){
+        return $this->belongTo(Penduduk::class);
+    }
 }

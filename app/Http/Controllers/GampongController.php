@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use APP\Models\Gampong;
+use App\Models\Gampong;
 
 class GampongController extends Controller
 {
@@ -19,13 +19,10 @@ class GampongController extends Controller
     }
     public function index()
     {
-        return view('gampong.index');
-        {
             $nomor =1;
-            $penduduk = Gampong::all();
+            $gampong = Gampong::all();
             return view('gampong.index', compact('nomor','gampong'));
             
-        }
     }
 
     /**
@@ -35,7 +32,7 @@ class GampongController extends Controller
      */
     public function create()
     {
-        //
+        return view('gampong.form');
     }
 
     /**
@@ -46,7 +43,14 @@ class GampongController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $gampong = new Gampong();
+
+        $gampong->nama_gampong = $request->nm;
+        $gampong->luas_gampong = $request->luas;
+
+        $gampong->save();
+
+        return redirect('/gampong');
     }
 
     /**
@@ -68,7 +72,9 @@ class GampongController extends Controller
      */
     public function edit($id)
     {
-        //
+        $gampong = Gampong::find($id);
+
+        return view('gampong.edit',compact('gampong'));
     }
 
     /**
@@ -80,7 +86,11 @@ class GampongController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $gampong = Gampong::find($id);
+        $gampong->nama_gampong = $request->nm;
+        $gampong->luas_gampong = $request->luas;
+
+        $gampong->save();
     }
 
     /**
@@ -91,6 +101,8 @@ class GampongController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $gampong  = Gampong::find($id);
+        $gampong->delete();
+        return redirect('/gampong');
     }
 }

@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Penduduk extends Model
 {
-    use HasFactory;
+    public function gampongs(){
+        return $this->hasOne(Gampong::class,'id','gampongs_id');
+    }
 }

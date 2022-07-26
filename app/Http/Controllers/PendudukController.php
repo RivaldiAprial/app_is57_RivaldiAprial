@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use APP\Models\Penduduk;
+use App\Models\Penduduk;
+use App\Models\Gampong;
 
 class PendudukController extends Controller
 {
@@ -19,13 +20,11 @@ class PendudukController extends Controller
     }
     public function index()
     {
-        return view('penduduk.index');
-        {
-            $nomor =1;
+        
+            $nomor=1;
             $penduduk = Penduduk::all();
             return view('penduduk.index', compact('nomor','penduduk'));
             
-        }
     }
 
     /**
@@ -35,7 +34,9 @@ class PendudukController extends Controller
      */
     public function create()
     {
-        return view('page.penduduk.form');
+        $gampong=Gampong::all();  
+        return view('penduduk.form',compact('gampong'));
+    
     }
 
     /**
@@ -48,13 +49,18 @@ class PendudukController extends Controller
     {
         $penduduk = new Penduduk();
 
-        $penduduk-> nidn = $request->ni;
-        $penduduk-> nm_dosen = $request->nm;
-        $penduduk-> tgl_bergabung = $request->tgl;
-        $penduduk-> golongan = $request->gol;
+        $penduduk-> nik = $request->nik;
+        $penduduk-> nama = $request->nm;
+        $penduduk-> tempat_lahir = $request->tmpt;
+        $penduduk-> tanggal_lahir = $request->tgl;
+        $penduduk-> jenis_kelamin = $request->jns;
+        $penduduk-> agama = $request->agm;
+        $penduduk-> alamat = $request->almt;
+        $penduduk-> hp = $request->hp;
+        $penduduk->gampongs_id = $request->nama_gampong;
         $penduduk->save();
 
-        return redirect('/dosen');
+        return redirect('/penduduk');
     }
 
     /**
@@ -76,7 +82,9 @@ class PendudukController extends Controller
      */
     public function edit($id)
     {
-        //
+        $penduduk = Penduduk::find($id);
+
+        return view('penduduk.edit',compact('penduduk'));
     }
 
     /**
@@ -88,7 +96,19 @@ class PendudukController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $penduduk = Penduduk::find($id);
+        $penduduk-> nik = $request->nik;
+        $penduduk-> nama = $request->nm;
+        $penduduk-> tempat_lahir = $request->tmpt;
+        $penduduk-> tanggal_lahir = $request->tgl;
+        $penduduk-> jenis_kelamin = $request->jns;
+        $penduduk-> agama = $request->agm;
+        $penduduk-> alamat = $request->almt;
+        $penduduk-> hp = $request->hp;
+        $penduduk->gampongs_id = $request->nama_gampong;
+        $penduduk->save();
+        return redirect('/penduduk');
     }
 
     /**
@@ -99,6 +119,8 @@ class PendudukController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $penduduk = Penduduk::find($id);
+        $penduduk->delete();
+        return redirect('/penduduk');
     }
 }
