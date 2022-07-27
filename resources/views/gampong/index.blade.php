@@ -25,7 +25,11 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-        <a href="/gampong/form" class="btn btn-primary">Tambah Data</a>
+          {{-- batasan untuk tombol admin dan user --}}
+          @can('create',App\Gampong::class)
+          <a href="/gampong/form" class="btn btn-primary">Tambah Data</a> 
+          @endcan
+        
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -43,7 +47,9 @@
                       <th>NO</th>
                       <th>NAMA GAMPONG</th>
                       <th>LUAS GAMPONG</th>
+                      @can('create',App\Gampong::class)
                       <th>ACTION</th>
+                      @endcan
                       </tr>
                   </thead>
                   <tbody>
@@ -54,6 +60,7 @@
                           <td>{{$item->luas_gampong}}</td>
                           
                           <td>
+                            @can('create',App\Gampong::class)
                             {{-- <a href="/gampong/edit/{{$item->id}}" class="btn btn-sm text-white btn-info"><i class="fa fa-pencil-alt"></i></a> --}}
                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#a{{$item->id}}">
                                   <i class="fa fa-trash-alt"></i>
@@ -77,6 +84,7 @@
                                           <button type="submit" class="btn btn-primary">Hapus</button>
                                         </form>
                                       </div>
+                                      @endcan
                                     </div>
                                   </div>
                                 </div>

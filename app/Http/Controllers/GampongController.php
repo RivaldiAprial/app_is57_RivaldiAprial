@@ -43,6 +43,7 @@ class GampongController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create',Gampong::class);
         $gampong = new Gampong();
 
         $gampong->nama_gampong = $request->nm;

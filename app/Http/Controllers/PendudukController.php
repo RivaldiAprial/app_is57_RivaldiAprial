@@ -47,6 +47,7 @@ class PendudukController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create',Penduduk::class);
         $penduduk = new Penduduk();
 
         $penduduk-> nik = $request->nik;

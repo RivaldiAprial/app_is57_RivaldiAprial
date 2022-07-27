@@ -25,7 +25,9 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-        <a href="/penduduk/form" class="btn btn-primary">Tambah Data</a>
+          @can('create',App\Penduduk::class)
+          <a href="/penduduk/form" class="btn btn-primary">Tambah Data</a> 
+          @endcan
 
         <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -49,7 +51,10 @@
                       <th>ALAMAT</th>
                       <th>HP</th>
                       <th>GAMPONG</th>
+                      @can('create',App\Penduduk::class)
                       <th>ACTION</th>
+                      @endcan
+
                       </tr>
                   </thead>
                   <tbody>
@@ -66,6 +71,7 @@
                           <td>{{$item->gampongs->nama_gampong}}</td>
                           
                           <td>
+                            @can('create',App\Penduduk::class)
                             <a href="/penduduk/edit/{{$item->id}}" class="btn btn-sm text-white btn-info"><i class="fa fa-pencil-alt"></i></a>
                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#a{{$item->id}}">
                                   <i class="fa fa-trash-alt"></i>
@@ -89,6 +95,7 @@
                                           <button type="submit" class="btn btn-primary">Hapus</button>
                                         </form>
                                       </div>
+                                      @endcan
                                     </div>
                                   </div>
                                 </div>
