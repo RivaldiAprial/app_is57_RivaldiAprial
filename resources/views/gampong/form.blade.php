@@ -41,11 +41,11 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="exampleInputEmail1">NAMA GAMPONG</label>
-                <input type="text"  name="nm" class="form-control" id="exampleInputEmail1" placeholder="NIK">
+                <input type="text"  name="nm" class="form-control" id="exampleInputEmail1" placeholder="Nama Gampong">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">LUAS GAMPONG</label>
-                <input type="text"  name="luas" class="form-control" id="exampleInputEmail1" placeholder="NAMA">
+                <input type="text"  name="luas" class="form-control" id="exampleInputEmail1" placeholder="Luas Gampong">
               </div>
             </div>
             <!-- /.card-body -->

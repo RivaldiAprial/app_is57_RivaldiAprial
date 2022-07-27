@@ -54,7 +54,7 @@
                           <td>{{$item->luas_gampong}}</td>
                           
                           <td>
-                            <a href="/gampong/edit/{{$item->id}}" class="btn btn-sm text-white btn-info"><i class="fa fa-pencil-alt"></i></a>
+                            {{-- <a href="/gampong/edit/{{$item->id}}" class="btn btn-sm text-white btn-info"><i class="fa fa-pencil-alt"></i></a> --}}
                                 <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#a{{$item->id}}">
                                   <i class="fa fa-trash-alt"></i>
                                 </button>
