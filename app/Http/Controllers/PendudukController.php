@@ -82,9 +82,10 @@ class PendudukController extends Controller
      */
     public function edit($id)
     {
+        $gampong = Gampong::all();
         $penduduk = Penduduk::find($id);
 
-        return view('penduduk.edit',compact('penduduk'));
+        return view('penduduk.edit',compact('penduduk','gampong'));
     }
 
     /**

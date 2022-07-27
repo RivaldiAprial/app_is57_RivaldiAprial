@@ -56,12 +56,23 @@
                 <input type="date"  name="tgl" class="form-control" id="exampleInputEmail1" placeholder="TANGGAL LAHIR">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">JENIS KELAMIN</label>
-                <input type="text"  name="jns" class="form-control" id="exampleInputEmail1" placeholder="JENIS KELAMIN">
+                <label for="exampleInputEmail1" class="form-label">JENIS KELAMIN</label>
+                  <select name="jns" class="form-control" id="">
+                    <option value="">-Pilih Jenis Kelamin-</option>
+                    <option value="P">Perempuan</option>
+                    <option value="L">Laki-Laki</option>
+                  </select>
+                </div>
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">AGAMA</label>
-                <input type="text"  name="agm" class="form-control" id="exampleInputEmail1" placeholder="AGAMA">
+                <label for="exampleInputEmail1" class="form-label">AGAMA</label>
+                  <select name="agm" class="form-control" id="">
+                    <option value="">-Pilih Agama-</option>
+                    <option value="ISLAM">ISLAM</option>
+                    <option value="KRISTEN">KRISTEN</option>
+                    <option value="BUDHA">BUDHA</option>
+                  </select>
+                </div>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">ALAMAT</label>
